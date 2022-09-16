@@ -1,0 +1,41 @@
+.card-wrapper {
+  display: flex;
+  min-width: 30%;
+  height: 400px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  cursor: pointer;
+  overflow: hidden;
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1s;
+    flex-grow: 1;
+    flex-shrink: 1;
+    .card-explanation {
+      margin: auto;
+      width: 150px;
+      height: 100px;
+      opacity: 0.75;
+      background-color: antiquewhite;
+      .card-title {
+        text-align: center;
+        margin: 2px;
+      }
+      .advertisement {
+        text-align: center;
+        margin: 2px;
+      }
+    }
+    &:hover {
+      transform: scale(1.2);
+      .card-explanation {
+        opacity: 1;
+      }
+    }
+  }
+}
