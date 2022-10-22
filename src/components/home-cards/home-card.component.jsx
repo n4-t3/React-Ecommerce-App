@@ -1,6 +1,6 @@
 import React from 'react';
-import './card.component.scss'
-const Card = (props) => {
+import './home-card.component.scss'
+const HomeCard = (props) => {
     return (
         <div className="card-wrapper">
             <div className="card" style={{ backgroundImage: `url(${props.data.imgSrc})` }}>
@@ -13,4 +13,4 @@ const Card = (props) => {
     )
 }
 
-export default Card
+export default HomeCard
