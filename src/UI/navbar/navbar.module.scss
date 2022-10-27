@@ -1,0 +1,25 @@
+.nav {
+  background-color: antiquewhite;
+  width: 100%;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      padding: 10px;
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all .25s;
+        &:hover{
+          color:rgb(127, 187, 255);
+        }
+      }
+    }
+  }
+}
+

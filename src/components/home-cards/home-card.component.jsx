@@ -1,8 +1,14 @@
 import React from 'react';
 import './home-card.component.scss'
+import { useNavigate } from 'react-router-dom';
+
 const HomeCard = (props) => {
+    const navigate = useNavigate()
+    const handleShopping = (e)=>{
+        navigate(`/shop/${props.data.item}/`,{state:{data:props.data}})
+    }
     return (
-        <div className="card-wrapper">
+        <div className="card-wrapper"  onClick={handleShopping}>
             <div className="card" style={{ backgroundImage: `url(${props.data.imgSrc})` }}>
                 <div className="card-explanation">
                     <h1 className="card-title">{props.data.item.toUpperCase()}</h1>
