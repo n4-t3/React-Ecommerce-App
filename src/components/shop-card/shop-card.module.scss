@@ -1,14 +1,18 @@
+.center{
+  display: flex;
+  justify-content: center;
+}
 .wrapper {
-  width: 400px;
+  max-width: 400px;
   transition: all 0.25s;
+  overflow: hidden;
 
   .img {
-    width: 100%;
+    max-width: 400px;
   }
   .overCard {
     position: relative;
     display: flex;
-    width: auto;
     justify-content: center;
     background-color: aliceblue;
     @media (hover: hover) {
@@ -17,7 +21,7 @@
     @media (hover: none) {
       opacity: 0.7;
     }
-    padding: 0 10px;
+    padding: 10px 10px;
     top: -100px;
     transition: all 0.25s;
   }
@@ -26,9 +30,10 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     text-transform: capitalize;
     top: -50px;
+    flex-shrink: 1;
   }
   &:hover {
     transform: scale(1.05);

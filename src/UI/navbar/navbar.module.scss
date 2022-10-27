@@ -6,6 +6,7 @@
     justify-content: flex-end;
     gap: 20px;
     flex-wrap: nowrap;
+    flex-shrink: 1;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,9 +17,17 @@
         color: inherit;
         transition: all .25s;
         &:hover{
-          color:rgb(127, 187, 255);
+          font-weight: bold;
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px){
+	.nav {
+    ul {
+      justify-content: center;
     }
   }
 }
