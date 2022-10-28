@@ -3,6 +3,7 @@ import React, { useContext, useState, createContext } from 'react';
 import HomePage from './pages/home-page/home-page.component'
 import Shop from './pages/shop-page/shop';
 import ShoppingPage from './pages/shopping-page/shopping-page.component';
+import CartPage from './pages/cart-page/cart';
 import Navbar from './UI/navbar/navbar';
 import { BrowserRouter as Router, Routes, Route, withRouter, Link } from 'react-router-dom'
 
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/shop/" element={<Shop />} />
             <Route exact path="/shop/:slug/" element={<ShoppingPage />} />
+            <Route exact path="/cart/" element={<CartPage />} />
           </Routes>
         </Router>
       </ShoppingContext.Provider>

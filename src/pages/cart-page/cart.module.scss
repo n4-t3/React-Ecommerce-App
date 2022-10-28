@@ -1,0 +1,17 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:20px;
+    background-color: beige;
+    padding:20px;
+    text-transform: capitalize;
+}
+
+.delete{
+    color:rgba(255, 0, 0, 0.733);
+    cursor: pointer;
+    &:hover{
+        color:red;
+    }
+}
