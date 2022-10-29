@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useContext, useState, createContext } from 'react';
-import HomePage from './pages/home-page/home-page.component'
+import HomePage from './pages/home-page/home'
 import Shop from './pages/shop-page/shop';
-import ShoppingPage from './pages/shopping-page/shopping-page.component';
+import ChosenShoppingPage from './pages/shopping-page/chosen-shopping';
 import CartPage from './pages/cart-page/cart';
 import Navbar from './UI/navbar/navbar';
+import SigninPage from './pages/signin/signin-page/signin-page';
 import { BrowserRouter as Router, Routes, Route, withRouter, Link } from 'react-router-dom'
 
 export const ShoppingContext = createContext()
@@ -21,7 +22,8 @@ function App() {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route exact path="/shop/" element={<Shop />} />
-            <Route exact path="/shop/:slug/" element={<ShoppingPage />} />
+            <Route exact path="/shop/:slug/" element={<ChosenShoppingPage />} />
+            <Route exact path="/signin/" element={<SigninPage />} />
             <Route exact path="/cart/" element={<CartPage />} />
           </Routes>
         </Router>

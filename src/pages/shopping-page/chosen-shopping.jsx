@@ -1,9 +1,9 @@
 import React from 'react';
-import './shopping-page.component.scss'
+import './chosen-shopping.component.scss'
 import { useLocation } from 'react-router-dom';
 import ShopComponent from '../../components/shop-component/shopComponent.component';
 import ShoppingCard from '../../components/shop-card/shop-card.component';
-const ShoppingPage = (props) => {
+const ChosenShoppingPage = (props) => {
     const location = useLocation()
     const data = location.state.data
     return (
@@ -11,4 +11,4 @@ const ShoppingPage = (props) => {
     )
 }
 
-export default ShoppingPage
+export default ChosenShoppingPage

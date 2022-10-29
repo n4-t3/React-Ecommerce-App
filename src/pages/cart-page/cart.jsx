@@ -1,5 +1,6 @@
 import cartCSS from './cart.module.scss'
 import { useState } from 'react'
+import Button from '../../components/button/button.component'
 const CartPage = (props) => {
     const data = JSON.parse(localStorage.getItem('cart'))
     const [cart, setCart] = useState(data)
@@ -9,8 +10,12 @@ const CartPage = (props) => {
         setCart(newCart)
         newCart.length>=1 ? (localStorage.setItem('cart',JSON.stringify([...newCart]))) : (localStorage.removeItem('cart'))
     }
+    const handleCheckOut = ()=>{
+        console.log('checkout')
+    }
     if (cart) {
         return (
+            <>
             <ul>
                 {cart.map((element, index) => {
                     return (
@@ -21,6 +26,8 @@ const CartPage = (props) => {
                         </li>)
                 })}
             </ul>
+            <Button onClick={handleCheckOut} className={cartCSS.btn} color = "secondary" value="Check Out" />
+            </>
         )
     } else {
         return (

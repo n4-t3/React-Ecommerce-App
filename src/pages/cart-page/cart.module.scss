@@ -15,3 +15,17 @@
         color:red;
     }
 }
+
+.btn{
+    padding:10px;
+    background-color: green;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color .25s;
+    &:hover{
+        background-color: darkgreen;
+    }
+}
