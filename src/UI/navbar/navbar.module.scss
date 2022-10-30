@@ -16,9 +16,10 @@
         text-decoration: none;
         color: inherit;
         transition: all .25s;
-        &:hover{
-          font-weight: bold;
-        }
+      }
+      &:hover{
+        font-weight: bold;
+        cursor: pointer;
       }
     }
   }

@@ -13,7 +13,7 @@ const CartPage = (props) => {
     const handleCheckOut = ()=>{
         console.log('checkout')
     }
-    if (cart) {
+    if (cart && cart.length>0) {
         return (
             <>
             <ul>
@@ -26,7 +26,7 @@ const CartPage = (props) => {
                         </li>)
                 })}
             </ul>
-            <Button onClick={handleCheckOut} className={cartCSS.btn} color = "secondary" value="Check Out" />
+            <Button onClick={handleCheckOut} className={cartCSS.btn} color = "primary" value="Check Out" />
             </>
         )
     } else {
