@@ -1,31 +1,30 @@
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin:20px;
-    background-color: beige;
-    padding:20px;
-    text-transform: capitalize;
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20px;
+  background-color: beige;
+  padding: 20px;
+  text-transform: capitalize;
 }
 
-.delete{
-    color:rgba(255, 0, 0, 0.733);
-    cursor: pointer;
-    &:hover{
-        color:red;
-    }
+.delete {
+  color: rgba(255, 0, 0, 0.733);
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
 }
 
-.btn{
-    padding:10px;
-    background-color: green;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color .25s;
-    &:hover{
-        background-color: darkgreen;
-    }
+.total {
+  font-weight: bold;
+  text-align: right;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.paymentInfo {
+  color: red;
+  margin: 20px;
+  font-weight: bold;
 }
