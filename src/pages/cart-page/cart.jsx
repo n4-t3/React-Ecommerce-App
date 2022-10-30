@@ -33,7 +33,7 @@ const CartPage = (props) => {
                 <div className={cartCSS.paymentInfo}>
                     *Use the following credit card information for payment*<br />
                     Card Number: 4242 4242 4242 4242<br />
-                    CVV: 123<br />
+                    CVC: 123<br />
                     Expiry: any date in future
                 </div>
             </>
