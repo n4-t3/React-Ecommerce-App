@@ -7,22 +7,23 @@ import CartPage from './pages/cart-page/cart';
 import Navbar from './UI/navbar/navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import {array} from './data/data';
+import { array } from './data/data';
+import db, {createUserProfileDocument} from './firebase/firebase.utils';
+import { collection, getDocs, addDoc, doc } from 'firebase/firestore';
 
 export const ShoppingContext = createContext()
 
 function App() {
   const [data, setData] = useState(array)
-  const [user,setUser] = useState(null)
+  const [user, setUser] = useState(null)
+  const [firebaseData, setFirebaseData] = useState(null)
+  const usersCollectionRef = collection(db, "users")
 
   useEffect(() => {
     const auth = getAuth();
     const authentication = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      }else{
-        setUser(null)
-      }
+      user ? setUser(user) : setUser(null)
+      createUserProfileDocument(user)
     })
     return authentication
   }, [])
