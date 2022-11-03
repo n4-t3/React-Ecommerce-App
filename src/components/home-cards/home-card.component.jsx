@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const HomeCard = (props) => {
     const navigate = useNavigate()
     const handleShopping = (e)=>{
-        navigate(`/shop/${props.data.item}/`,{state:{data:props.data}})
+        navigate(`/React-Ecommerce-App/shop/${props.data.item}/`,{state:{data:props.data}})
     }
     return (
         <div className="card-wrapper"  onClick={handleShopping}>

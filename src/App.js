@@ -35,10 +35,10 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<HomePage />} />
-            <Route exact path="/shop/" element={<Shop />} />
-            <Route exact path="/shop/:slug/" element={<ChosenShoppingPage />} />
-            <Route exact path="/cart/" element={<CartPage />} />
+            <Route exact path="/React-Ecommerce-App/" element={<HomePage />} />
+            <Route exact path="/React-Ecommerce-App/shop/" element={<Shop />} />
+            <Route exact path="/React-Ecommerce-App/shop/:slug/" element={<ChosenShoppingPage />} />
+            <Route exact path="/React-Ecommerce-App/cart/" element={<CartPage />} />
           </Routes>
         </Router>
       </ShoppingContext.Provider>

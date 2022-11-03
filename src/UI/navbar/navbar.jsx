@@ -10,9 +10,9 @@ const Navbar = () => {
     return (
         <nav className={navbarCSS.nav}>
             <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/shop/'>Shop</Link></li>
-                <li><Link to='/cart/'>Cart</Link></li>
+                <li><Link to='/React-Ecommerce-App/'>Home</Link></li>
+                <li><Link to='/React-Ecommerce-App/shop/'>Shop</Link></li>
+                <li><Link to='/React-Ecommerce-App/cart/'>Cart</Link></li>
                 {!user ? <li onClick={signInWithGoogle}>Sign In</li> : null}
                 {user ? <li onClick={signOutWithGoogle}>SignOut</li> : null}
             </ul>

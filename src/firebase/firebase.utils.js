@@ -1,8 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
-// import * as dotenv from 'dotenv'
-console.log(process.env)
 
 const config = {
     apiKey: `${process.env.REACT_APP_apiKey}`,
