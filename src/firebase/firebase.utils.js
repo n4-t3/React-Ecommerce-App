@@ -3,12 +3,12 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/
 import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore'
 
 const config = {
-    apiKey: `${process.env.REACT_APP_apiKey}`,
-    authDomain: `${process.env.REACT_APP_authDomain}`,
-    projectId: `${process.env.REACT_APP_projectId}`,
-    storageBucket: `${process.env.REACT_APP_storageBucket}`,
-    messagingSenderId: `${process.env.REACT_APP_messagingSenderId}`,
-    appId: `${process.env.REACT_APP_appId}`
+    apiKey: "AIzaSyBRB1IFgomJVqqivA-bPAIW2-oQ6FYQadM",
+    authDomain: "react-ecomerce-app-beb21.firebaseapp.com",
+    projectId: "react-ecomerce-app-beb21",
+    storageBucket: "react-ecomerce-app-beb21.appspot.com",
+    messagingSenderId: "707004291621",
+    appId: "1:707004291621:web:6bb1667f7da62e1d35fdcc"
 }
 
 const app = initializeApp(config)

@@ -1,5 +1,5 @@
 import cartCSS from './cart.module.scss'
-import { useState, useContext, useEffect, useMemo } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
 import { ShoppingContext } from '../../App'
 import { removeCartElementFromCloud } from '../../firebase/firebase.utils'
