@@ -4,7 +4,7 @@ import { ShoppingContext } from '../../App'
 import React, { useContext } from 'react'
 
 const HomePage = (props) => {
-    const {data,setData} = useContext(ShoppingContext)
+    const {data} = useContext(ShoppingContext)
 
     return (
         <div className="card-container">

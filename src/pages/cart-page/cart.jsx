@@ -1,22 +1,36 @@
 import cartCSS from './cart.module.scss'
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
+import { ShoppingContext } from '../../App'
+import { removeCartElementFromCloud } from '../../firebase/firebase.utils'
+import { getUserProfile } from '../../firebase/firebase.utils'
 const CartPage = (props) => {
-    const data = JSON.parse(localStorage.getItem('cart'))
-    const [cart, setCart] = useState(data)
-    const handleDelete = (element) => {
-        localStorage.removeItem('cart')
-        const newCart = cart.filter(item => item !== element)
-        setCart(newCart)
-        newCart.length >= 1 ? (localStorage.setItem('cart', JSON.stringify([...newCart]))) : (localStorage.removeItem('cart'))
+    const ctx = useContext(ShoppingContext)
+    const user = ctx.user
+    const [cart, setCart] = useState(null)
+    const data = user ? user.cartItem : JSON.parse(localStorage.getItem('cart'))
+    useEffect(()=>{ setCart(data) },[data])
+    const handleDelete = async (element) => {
+        if (user){
+            removeCartElementFromCloud(user.uid,[element])
+            await getUserProfile(user.uid).then(
+                resp=>ctx.setUser(resp)
+            )
+        }else{
+            localStorage.removeItem('cart')
+            const newCart = cart.filter(item => item !== element)
+            setCart(newCart)
+            newCart.length >= 1 ? (localStorage.setItem('cart', JSON.stringify([...newCart]))) : (localStorage.removeItem('cart'))
+        }
     }
     let total = 0
     if (cart && cart.length > 0) {
         return (
             <>
+                <h1 className={cartCSS.header}>Cart Items</h1>
                 <ul>
                     {cart.map((element, index) => {
-                        total+=parseInt(element.price)
+                        total += parseInt(element.price)
                         return (
                             <li key={index} className={cartCSS.row}>
                                 <div>{element.name}</div>
@@ -29,13 +43,25 @@ const CartPage = (props) => {
                     Total = ${total}
                 </div>
 
-                <StripeCheckoutButton price={total} setCart={setCart}/>
+                <StripeCheckoutButton cart={cart} price={total} setCart={setCart} />
                 <div className={cartCSS.paymentInfo}>
                     *Use the following credit card information for payment*<br />
                     Card Number: 4242 4242 4242 4242<br />
                     CVC: 123<br />
                     Expiry: any date in future
                 </div>
+                {user ? (<div><h1 className={cartCSS.header}>Bought Items</h1><ul>
+                    {user.boughtItem.map((element, index) => {
+                        total += parseInt(element.price)
+                        return (
+                            <li key={index} className={cartCSS.row}>
+                                <div>{element.name}</div>
+                                <div>{element.price}</div>
+                                <div>In Route</div>
+                            </li>)
+                    })}
+                </ul></div>):null}
+                
             </>
         )
     } else {

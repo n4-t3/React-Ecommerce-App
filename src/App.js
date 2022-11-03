@@ -8,29 +8,30 @@ import Navbar from './UI/navbar/navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { array } from './data/data';
-import db, {createUserProfileDocument} from './firebase/firebase.utils';
-import { collection, getDocs, addDoc, doc } from 'firebase/firestore';
+import {createUserProfileDocument} from './firebase/firebase.utils';
 
 export const ShoppingContext = createContext()
 
 function App() {
   const [data, setData] = useState(array)
   const [user, setUser] = useState(null)
-  const [firebaseData, setFirebaseData] = useState(null)
-  const usersCollectionRef = collection(db, "users")
 
   useEffect(() => {
     const auth = getAuth();
-    const authentication = onAuthStateChanged(auth, (user) => {
-      user ? setUser(user) : setUser(null)
-      createUserProfileDocument(user)
+    const authentication = onAuthStateChanged(auth, async (user) => {
+      if (user){
+        const userRef =  await createUserProfileDocument(user)
+        setUser({...userRef})
+      }else{
+        setUser(null)
+      }
     })
     return authentication
   }, [])
 
   return (
     <div className="App">
-      <ShoppingContext.Provider value={{ data, setData, user }}>
+      <ShoppingContext.Provider value={{ data, setData, user, setUser }}>
         <Router>
           <Navbar />
           <Routes>
