@@ -7,23 +7,10 @@ import {
 import { ShoppingContext } from "../../context";
 import { useContext } from "react";
 
-interface Closet {
-  id: number;
-  name: string;
-  imgSrc: string;
-  price: number;
-}
-
 interface Props {
   cart: Closet[];
   price: number;
   setCart: React.Dispatch<React.SetStateAction<Closet[] | null>>;
-}
-
-interface User {
-  email: string;
-  displayName: string;
-  uid: string;
 }
 
 const StripeCheckoutButton = ({ cart, price, setCart }: Props) => {

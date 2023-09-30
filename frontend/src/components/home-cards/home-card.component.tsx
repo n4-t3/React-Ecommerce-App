@@ -1,13 +1,6 @@
 import "./home-card.component.scss";
 import { useNavigate } from "react-router-dom";
 
-interface Closet {
-  id: number;
-  name: string;
-  imgSrc: string;
-  price: number;
-}
-
 interface Props {
   data: {
     id: number;

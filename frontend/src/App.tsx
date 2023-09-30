@@ -11,12 +11,6 @@ import { array } from "./data/data";
 import { createUserProfileDocument } from "./firebase/firebase.utils";
 import { ShoppingContext } from "./context";
 
-interface User {
-  email: string;
-  displayName: string;
-  uid: string;
-}
-
 function App() {
   const [data, setData] = useState(array);
   const [user, setUser] = useState<User | null>(null);

@@ -1,23 +1,15 @@
 import { createContext } from "react";
 
-interface User {
-  email: string;
-  displayName: string;
-  uid: string;
-  boughtItem?: [];
-  cartItem?: [];
-}
-
-interface Closet {
+interface Data {
   id: number;
   item: string;
   imgSrc: string;
-  closet: { id: number; name: string; imgSrc: string; price: number }[];
+  closet: Closet[];
 }
 
 interface Context {
-  data: Closet[];
-  setData: React.Dispatch<React.SetStateAction<Closet[]>>;
+  data: Data[];
+  setData: React.Dispatch<React.SetStateAction<Data[]>>;
   user: User | null;
   setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import shoppingCardCSS from "./shop-card.module.scss";
 import { ShoppingContext } from "../../context";
-
 import {
   addCartElementToCloud,
   getUserProfile,
@@ -14,12 +13,6 @@ interface Props {
     imgSrc: string;
     price: number;
   };
-}
-
-interface User {
-  email: string;
-  displayName: string;
-  uid: string;
 }
 
 const ShoppingCard = (props: Props) => {

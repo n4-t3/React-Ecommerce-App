@@ -24,18 +24,6 @@ const config = {
   appId: "1:707004291621:web:6bb1667f7da62e1d35fdcc",
 };
 
-interface Element {
-  id: number;
-  name: string;
-  imgSrc: string;
-  price: number;
-}
-
-interface UserAuth {
-  email: string;
-  displayName: string;
-  uid: string;
-}
 const app = initializeApp(config);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
@@ -56,10 +44,7 @@ export const addCartToCloud = async (uid: string) => {
   }
 };
 
-export const addCartElementToCloud = async (
-  uid: string,
-  element: Element[]
-) => {
+export const addCartElementToCloud = async (uid: string, element: Closet[]) => {
   const userDataRef = doc(db, "users", `${uid}`);
   await updateDoc(userDataRef, {
     cartItem: arrayUnion(...element),
@@ -68,7 +53,7 @@ export const addCartElementToCloud = async (
 
 export const removeCartElementFromCloud = async (
   uid: string,
-  element: Element[]
+  element: Closet[]
 ) => {
   const userDataRef = doc(db, "users", `${uid}`);
   await updateDoc(userDataRef, {
@@ -76,7 +61,7 @@ export const removeCartElementFromCloud = async (
   });
 };
 
-export const addBoughtToCloud = async (uid: string, items: Element[]) => {
+export const addBoughtToCloud = async (uid: string, items: Closet[]) => {
   const userDataRef = doc(db, "users", `${uid}`);
   await updateDoc(userDataRef, {
     boughtItem: arrayUnion(...items),
@@ -90,7 +75,7 @@ export const getUserProfile = async (uid: string) => {
 };
 
 export const createUserProfileDocument = async (
-  userAuth: UserAuth | null,
+  userAuth: User | null,
   AdditionalData = { cartItem: [], boughtItem: [] }
 ) => {
   if (!userAuth) return;

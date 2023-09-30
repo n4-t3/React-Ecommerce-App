@@ -3,13 +3,6 @@ import ShoppingCard from "../shop-card/shop-card.component";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import React from "react";
 
-interface Closet {
-  id: number;
-  name: string;
-  imgSrc: string;
-  price: number;
-}
-
 interface Props {
   data: {
     id: number;

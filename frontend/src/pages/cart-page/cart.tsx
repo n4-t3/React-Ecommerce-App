@@ -5,29 +5,16 @@ import { ShoppingContext } from "../../context";
 import { removeCartElementFromCloud } from "../../firebase/firebase.utils";
 import { getUserProfile } from "../../firebase/firebase.utils";
 
-interface Element {
-  id: number;
-  name: string;
-  imgSrc: string;
-  price: number;
-}
-
-interface User {
-  email: string;
-  displayName: string;
-  uid: string;
-}
-
 const CartPage = () => {
   const ctx = useContext(ShoppingContext);
   const user = ctx.user;
-  const [cart, setCart] = useState<Element[] | null>(null);
+  const [cart, setCart] = useState<Closet[] | null>(null);
   const localCartData = JSON.parse(localStorage.getItem("cart")!);
   const data = user ? user.cartItem : localCartData;
   useEffect(() => {
     setCart(data);
   }, [data]);
-  const handleDelete = async (element: Element) => {
+  const handleDelete = async (element: Closet) => {
     if (user) {
       removeCartElementFromCloud(user.uid, [element]);
       await getUserProfile(user.uid).then((resp) =>
@@ -53,7 +40,7 @@ const CartPage = () => {
           <div>
             <h1 className={cartCSS.header}>Cart Items</h1>
             <ul>
-              {cart.map((element: Element, index: number) => {
+              {cart.map((element: Closet, index: number) => {
                 total += element.price;
                 return (
                   <li key={index} className={cartCSS.row}>
@@ -88,7 +75,7 @@ const CartPage = () => {
           <div>
             <h1 className={cartCSS.header}>Bought Items</h1>
             <ul>
-              {user.boughtItem.map((element: Element, index: number) => {
+              {user.boughtItem.map((element: Closet, index: number) => {
                 total += element.price;
                 return (
                   <li key={index} className={cartCSS.row}>

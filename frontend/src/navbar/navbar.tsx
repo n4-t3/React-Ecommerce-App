@@ -6,6 +6,7 @@ import {
   signInWithGoogle,
   signOutWithGoogle,
 } from "../firebase/firebase.utils";
+
 const Navbar = () => {
   const ctx = useContext(ShoppingContext);
   const user = ctx.user;
