@@ -1,29 +1,29 @@
-.primaryBtn{
-    margin:2px;
-    padding:10px;
-    background-color: green;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color .25s;
-    &:hover{
-        background-color: darkgreen;
-    }
+.primaryBtn {
+  margin: 2px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  &:hover {
+    background-color: darkgreen;
+  }
 }
 
-.secondaryBtn{
-    margin:2px;
-    padding:10px;
-    background-color: grey;
-    color:white;
-    border:none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color .25s;
-    &:hover{
-        background-color: rgb(87, 83, 83);
-    }
+.secondaryBtn {
+  margin: 2px;
+  padding: 10px;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  &:hover {
+    background-color: rgb(87, 83, 83);
+  }
 }

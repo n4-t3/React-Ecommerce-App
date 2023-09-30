@@ -1,6 +1,6 @@
 import navbarCSS from "./navbar.module.scss";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-import { ShoppingContext } from "../../App";
+import { Link } from "react-router-dom";
+import { ShoppingContext } from "../../context";
 import { useContext } from "react";
 import {
   signInWithGoogle,
