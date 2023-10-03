@@ -4,6 +4,8 @@ import { schema } from "./graphql/schema";
 import { resolvers } from "./graphql/resolvers";
 import mongoose from "mongoose";
 import { configDotenv } from "dotenv";
+import { authentication } from "./middlewares/authentication";
+import { admin } from "./middlewares/admin";
 
 configDotenv();
 
@@ -12,13 +14,10 @@ const PORT = process.env.PORT ? process.env.PORT : 3000;
 
 if (MONGODBURL) {
   mongoose.connect(MONGODBURL);
-
   const db = mongoose.connection;
-
   db.once("open", () => {
     console.log("connected to Mongodb");
   });
-
   db.on("error", (err: Error) => {
     console.error("Error connecting to Mongodb:", err);
   });
@@ -39,6 +38,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use(express.json());
 
+app.use(authentication);
+app.use(admin);
+
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -49,7 +51,7 @@ app.use(
 );
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript Express!");
+  res.send("Head /graphql to make requests");
 });
 
 app.listen(PORT, () => {
