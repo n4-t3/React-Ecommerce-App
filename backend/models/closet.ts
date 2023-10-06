@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Item } from "./item";
 
 const closetSchema = new mongoose.Schema({
-  collection: {
+  collectionName: {
     type: String,
     required: true,
   },

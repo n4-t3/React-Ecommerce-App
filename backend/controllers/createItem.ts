@@ -2,7 +2,7 @@ import { Closet } from "../models/closet";
 import { Item } from "../models/item";
 
 export const createItem = async (
-  collection: string,
+  collectionName: string,
   name: string,
   imgSrc: string,
   price: number
@@ -13,7 +13,7 @@ export const createItem = async (
     price,
   });
   await newItem.save();
-  const closet = await Closet.findOne({ collection });
+  const closet = await Closet.findOne({ collectionName });
   if (!closet) {
     throw new Error("Closet not found");
   }
