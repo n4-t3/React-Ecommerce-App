@@ -4,6 +4,7 @@ E-commerce with:
 
 - Backend and Authentication: **_Graphql, Express, Node, Mongodb_**
 - Frontend: **_React_**
+- Hosting: used a **_Firebase_** setup for backend
 
 ### How to Locally Run the Project
 
@@ -15,6 +16,9 @@ Navigate to front or backend directory to install dependencies and run server
 
 ```
 npm install
+```
+
+```
 npm start
 ```
 
