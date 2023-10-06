@@ -63,7 +63,11 @@ app.get("/images/:filename", (req, res) => {
 
 app.use("/images", express.static("images"));
 
-// app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
